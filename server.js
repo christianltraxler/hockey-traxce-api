@@ -81,7 +81,15 @@ const schema = new GraphQLSchema({
     query: RootQueryType
 });
 
-app.use('/graphql', expressGraphQL({
+app.use(
+    cors({
+        credentials: true,
+        origin: true
+    })
+);
+app.options('*', cors());
+
+app.use('/graphql', (res, req) => expressGraphQL({
     schema: new GraphQLSchema({ query: RootQueryType }),
     graphiql: true
 }));
