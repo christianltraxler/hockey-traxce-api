@@ -19,7 +19,7 @@ import { games, players, positions, teams, divisions, conferences, countries } f
 
 const RootQueryType = new GraphQLObjectType({
     name: 'Query',
-    description: 'Root Querty',
+    description: 'Root Query',
     fields: () => ({
         game: {
             type: GameType,
@@ -81,7 +81,7 @@ const schema = new GraphQLSchema({
     query: RootQueryType
 });
 
-app.use('/', expressGraphQL({
+app.use('/graphql', expressGraphQL({
     schema: new GraphQLSchema({ query: RootQueryType }),
     graphiql: true
 }));
