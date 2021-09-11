@@ -1,3 +1,4 @@
+require('dotenv').config();
 import cors from 'cors';
 import express from 'express';
 import expressGraphQL from 'express-graphql';
@@ -93,4 +94,4 @@ app.use('/graphql', (res, req) => expressGraphQL({
     schema: new GraphQLSchema({ query: RootQueryType }),
     graphiql: true
 }));
-app.listen(5000., () => console.log('Server Running'));
+app.listen(process.env.PORT || 5000);
