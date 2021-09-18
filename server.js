@@ -11,6 +11,7 @@ import {
     GraphQLNonNull,
     GraphQLBoolean
 } from 'graphql';
+//const { ApolloServer } = require("apollo-server-express");
 
 
 import { TeamType, GameType, DivisionType, ConferenceType } from "./types.js"
@@ -94,4 +95,23 @@ app.use('/graphql', (res, req) => expressGraphQL({
     schema: new GraphQLSchema({ query: RootQueryType }),
     graphiql: true
 }));
-app.listen(process.env.PORT || 5000);
+
+app.use(express.static('public'));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+/*
+const server = new ApolloServer({ schema });
+
+app.use(express.static("public"));
+
+server.applyMiddleware({ app });
+
+app.listen({ port: PORT });
+*/
