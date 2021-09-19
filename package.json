@@ -1,24 +1,24 @@
 {
-  "name": "api",
+  "name": "hockey-traxce-api",
   "version": "1.0.0",
-  "main": "./server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christianltraxler/graphql-api.git"
+  },
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "apollo-server-express": "^3.3.0",
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "express-graphql": "^0.7.1",
-    "graphql": "^14.1.1",
-    "node": "^16.6.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.10"
-  },
-  "description": ""
+    "express": "^4.17.1",
+    "graphql": "^15.5.3",
+    "mongoose": "^6.0.6",
+    "nodemon": "^2.0.12"
+  }
 }
